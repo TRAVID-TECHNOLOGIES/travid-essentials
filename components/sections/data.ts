@@ -78,7 +78,7 @@ export const testimonials = [
 export const stats = [
   { label: "Production systems launched", value: "120+" },
   { label: "Average performance lift", value: "3.6x" },
-  { label: "Senior engineering experience", value: "10-18 yrs" },
+  { label: "Senior engineering experience", value: "4-6 yrs" },
 ];
 
 export const techStack = [
