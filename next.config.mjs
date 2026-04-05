@@ -4,10 +4,7 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  devIndicators: {
-    buildActivity: false,
-    buildActivityPosition: "bottom-right",
-  },
+  devIndicators: false,
 };
 
 export default nextConfig;

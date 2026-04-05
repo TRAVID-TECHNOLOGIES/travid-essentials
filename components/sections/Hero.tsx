@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import ButtonLink from "../ui/ButtonLink";
 import Container from "../ui/Container";
@@ -131,27 +130,80 @@ export default function Hero() {
               offset={["start 60%", "end 20%"]}
               className="relative overflow-hidden rounded-3xl shadow-soft"
             >
-              <div className="glass gradient-border relative overflow-hidden rounded-3xl p-8">
-                <Image
-                  src="/illustrations/hero-grid.svg"
-                  alt="Platform analytics and infrastructure"
-                  width={520}
-                  height={520}
-                  className="h-auto w-full animate-float"
-                  priority
-                />
-                <div className="mt-6 grid gap-4 md:grid-cols-2">
-                  <div className="rounded-2xl bg-ink/5 p-4 dark:bg-white/10">
-                    <p className="text-xs uppercase tracking-[0.2em] text-ink/60 dark:text-white/60">
-                      Uptime
-                    </p>
-                    <p className="text-2xl font-semibold text-ink dark:text-cloud">99.98%</p>
+              <div className="glass gradient-border relative overflow-hidden rounded-3xl p-6">
+                <div className="grid gap-5">
+                  <div className="rounded-[2rem] bg-slate-950/90 p-5 text-white shadow-soft">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.24em] text-slate-400">
+                          Platform overview
+                        </p>
+                        <p className="mt-2 text-lg font-semibold text-white">
+                          Travid Cloud Ops
+                        </p>
+                      </div>
+                      <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-200">
+                        Live
+                      </span>
+                    </div>
+
+                    <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                      <div className="rounded-2xl bg-slate-900/80 p-4">
+                        <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                          Throughput
+                        </p>
+                        <p className="mt-2 text-xl font-semibold text-white">528 req/s</p>
+                      </div>
+                      <div className="rounded-2xl bg-slate-900/80 p-4">
+                        <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                          SLA
+                        </p>
+                        <p className="mt-2 text-xl font-semibold text-white">99.98%</p>
+                      </div>
+                      <div className="rounded-2xl bg-slate-900/80 p-4">
+                        <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                          Alerts
+                        </p>
+                        <p className="mt-2 text-xl font-semibold text-white">2 active</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="rounded-2xl bg-ink/5 p-4 dark:bg-white/10">
-                    <p className="text-xs uppercase tracking-[0.2em] text-ink/60 dark:text-white/60">
-                      Latency
-                    </p>
-                    <p className="text-2xl font-semibold text-ink dark:text-cloud">-42%</p>
+
+                  <div className="relative overflow-hidden rounded-[2rem] bg-slate-950/90 p-5 text-white shadow-soft">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(99,102,241,0.16),transparent_25%),radial-gradient(circle_at_bottom_right,_rgba(59,130,246,0.12),transparent_25%)]" />
+                    <div className="relative z-10 flex flex-col gap-4">
+                      <div className="flex items-center justify-between text-xs uppercase tracking-[0.22em] text-slate-400">
+                        <span>System performance</span>
+                        <span>Last 12 hours</span>
+                      </div>
+                      <div className="h-44 rounded-[1.75rem] bg-slate-900/90 p-4">
+                        <div className="relative h-full overflow-hidden rounded-[1.5rem] bg-slate-950/95">
+                          <div className="absolute inset-0 opacity-30 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0)_100%)]" />
+                          <div className="absolute inset-0 grid grid-rows-4 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[length:100%_1.5rem]" />
+                          <div className="absolute inset-x-6 bottom-6 top-6">
+                            <svg viewBox="0 0 300 140" className="h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M0 96C34 90 68 68 102 72C136 76 170 56 204 52C238 48 272 38 300 32" stroke="#7dd3fc" strokeWidth="3" strokeLinecap="round" />
+                              <path d="M0 108C34 104 68 86 102 92C136 98 170 76 204 72C238 70 272 64 300 58" stroke="#38bdf8" strokeWidth="3" strokeLinecap="round" opacity="0.75" />
+                              <circle cx="248" cy="50" r="5" fill="#22c55e" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <div className="rounded-2xl bg-slate-900/80 p-4">
+                          <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                            Deployment
+                          </p>
+                          <p className="mt-2 text-sm font-semibold text-white">Canary release complete</p>
+                        </div>
+                        <div className="rounded-2xl bg-slate-900/80 p-4">
+                          <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                            Incident
+                          </p>
+                          <p className="mt-2 text-sm font-semibold text-white">CPU spike resolved</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
