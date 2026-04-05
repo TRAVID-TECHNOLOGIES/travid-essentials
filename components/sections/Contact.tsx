@@ -5,6 +5,7 @@ import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import MotionDiv from "../animation/MotionDiv";
 import SectionDivider from "../animation/SectionDivider";
+import SmoothScroll from "../animation/SmoothScroll";
 import { fadeUp, staggerContainer } from "../../lib/motionVariants";
 
 export default function Contact() {
@@ -18,7 +19,11 @@ export default function Contact() {
       viewport={{ once: true, margin: "-80px" }}
     >
       <Container className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-        <MotionDiv variants={fadeUp}>
+        <SmoothScroll
+          yOffset={[60, -20]}
+          opacityRange={[0.3, 1]}
+          scaleRange={[0.92, 1]}
+        >
           <SectionHeading
             eyebrow="Contact"
             title="Start with a clear plan"
@@ -35,8 +40,13 @@ export default function Contact() {
             </p>
             <p>Global delivery with senior teams across time zones.</p>
           </MotionDiv>
-        </MotionDiv>
-        <MotionDiv variants={fadeUp}>
+        </SmoothScroll>
+        <SmoothScroll
+          yOffset={[50, -30]}
+          opacityRange={[0.4, 1]}
+          scaleRange={[0.94, 1]}
+          offset={["start 80%", "end 20%"]}
+        >
           <form className="glass gradient-border space-y-6 rounded-3xl p-8">
             <div className="grid gap-4 md:grid-cols-2">
               <div className="flex flex-col gap-2">
@@ -108,7 +118,7 @@ export default function Contact() {
               Technologies.
             </p>
           </form>
-        </MotionDiv>
+        </SmoothScroll>
       </Container>
       <SectionDivider />
     </motion.section>

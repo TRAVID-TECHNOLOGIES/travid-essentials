@@ -5,6 +5,8 @@ import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import MotionDiv from "../animation/MotionDiv";
 import SectionDivider from "../animation/SectionDivider";
+import SmoothScroll from "../animation/SmoothScroll";
+import StaggerReveal from "../animation/StaggerReveal";
 import { fadeUp, staggerContainer } from "../../lib/motionVariants";
 import { services } from "./data";
 
@@ -19,7 +21,11 @@ export default function Services() {
       viewport={{ once: true, margin: "-80px" }}
     >
       <Container className="space-y-12">
-        <MotionDiv variants={fadeUp}>
+        <SmoothScroll
+          yOffset={[60, -20]}
+          opacityRange={[0.3, 1]}
+          scaleRange={[0.92, 1]}
+        >
           <SectionHeading
             eyebrow="Services"
             title="Engineering that removes bottlenecks"
@@ -27,26 +33,32 @@ export default function Services() {
             useMotion
             variants={{ eyebrow: fadeUp, title: fadeUp, description: fadeUp }}
           />
-        </MotionDiv>
+        </SmoothScroll>
         <div className="grid gap-6 md:grid-cols-2">
-          {services.map((service) => (
-            <MotionDiv
+          {services.map((service, index) => (
+            <StaggerReveal
               key={service.title}
-              variants={fadeUp}
-              whileHover={{ y: -4, scale: 1.015 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="group glass gradient-border h-full rounded-3xl p-6 shadow-soft hover:shadow-xl hover:shadow-indigo-500/5"
+              index={index}
+              staggerDelay={0.12}
+              variant="scaleIn"
+              className="group glass gradient-border h-full rounded-3xl p-6 shadow-soft hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300"
             >
-              <h3 className="font-heading text-xl font-semibold text-ink dark:text-cloud">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-steel">
-                {service.description}
-              </p>
-              <span className="mt-6 inline-flex items-center text-xs font-semibold uppercase tracking-[0.2em] text-aurora">
-                Learn more
-              </span>
-            </MotionDiv>
+              <MotionDiv
+                whileHover={{ y: -4, scale: 1.015 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="h-full"
+              >
+                <h3 className="font-heading text-xl font-semibold text-ink dark:text-cloud">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-steel">
+                  {service.description}
+                </p>
+                <span className="mt-6 inline-flex items-center text-xs font-semibold uppercase tracking-[0.2em] text-aurora">
+                  Learn more
+                </span>
+              </MotionDiv>
+            </StaggerReveal>
           ))}
         </div>
       </Container>

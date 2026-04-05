@@ -5,6 +5,8 @@ import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import MotionDiv from "../animation/MotionDiv";
 import SectionDivider from "../animation/SectionDivider";
+import SmoothScroll from "../animation/SmoothScroll";
+import StaggerReveal from "../animation/StaggerReveal";
 import { fadeUp, staggerContainer } from "../../lib/motionVariants";
 import { stats } from "./data";
 
@@ -19,7 +21,12 @@ export default function About() {
       viewport={{ once: true, margin: "-80px" }}
     >
       <Container className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr]">
-        <MotionDiv variants={fadeUp}>
+        <SmoothScroll
+          yOffset={[60, -20]}
+          opacityRange={[0.3, 1]}
+          scaleRange={[0.92, 1]}
+          offset={["start 85%", "end 20%"]}
+        >
           <SectionHeading
             eyebrow="About"
             title="A senior team built for complex systems"
@@ -39,23 +46,28 @@ export default function About() {
               stakeholders stay aligned and releases stay predictable.
             </p>
           </MotionDiv>
-        </MotionDiv>
+        </SmoothScroll>
         <div className="grid gap-6">
-          {stats.map((stat) => (
-            <MotionDiv
+          {stats.map((stat, index) => (
+            <StaggerReveal
               key={stat.label}
-              variants={fadeUp}
-              whileHover={{ y: -4, scale: 1.015 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="glass gradient-border rounded-3xl p-6 shadow-soft hover:shadow-xl hover:shadow-indigo-500/5"
+              index={index}
+              staggerDelay={0.1}
+              variant="slideUp"
+              className="glass gradient-border rounded-3xl p-6 shadow-soft hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300"
             >
-              <p className="text-sm uppercase tracking-[0.2em] text-aurora">
-                {stat.label}
-              </p>
-              <p className="mt-2 text-3xl font-semibold text-ink dark:text-cloud">
-                {stat.value}
-              </p>
-            </MotionDiv>
+              <MotionDiv
+                whileHover={{ y: -4, scale: 1.015 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <p className="text-sm uppercase tracking-[0.2em] text-aurora">
+                  {stat.label}
+                </p>
+                <p className="mt-2 text-3xl font-semibold text-ink dark:text-cloud">
+                  {stat.value}
+                </p>
+              </MotionDiv>
+            </StaggerReveal>
           ))}
         </div>
       </Container>

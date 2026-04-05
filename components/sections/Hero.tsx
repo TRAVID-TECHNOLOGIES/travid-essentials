@@ -6,6 +6,8 @@ import ButtonLink from "../ui/ButtonLink";
 import Container from "../ui/Container";
 import MotionDiv from "../animation/MotionDiv";
 import SectionDivider from "../animation/SectionDivider";
+import ParallaxImage from "../animation/ParallaxImage";
+import SmoothScroll from "../animation/SmoothScroll";
 import { fadeUp, scaleIn, staggerContainer } from "../../lib/motionVariants";
 
 export default function Hero() {
@@ -124,30 +126,36 @@ export default function Hero() {
             </MotionDiv>
           </div>
           <MotionDiv variants={mediaVariants} className="relative">
-            <div className="glass gradient-border relative overflow-hidden rounded-3xl p-8 shadow-soft">
-              <Image
-                src="/illustrations/hero-grid.svg"
-                alt="Platform analytics and infrastructure"
-                width={520}
-                height={520}
-                className="h-auto w-full animate-float"
-                priority
-              />
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
-                <div className="rounded-2xl bg-ink/5 p-4 dark:bg-white/10">
-                  <p className="text-xs uppercase tracking-[0.2em] text-ink/60 dark:text-white/60">
-                    Uptime
-                  </p>
-                  <p className="text-2xl font-semibold text-ink dark:text-cloud">99.98%</p>
-                </div>
-                <div className="rounded-2xl bg-ink/5 p-4 dark:bg-white/10">
-                  <p className="text-xs uppercase tracking-[0.2em] text-ink/60 dark:text-white/60">
-                    Latency
-                  </p>
-                  <p className="text-2xl font-semibold text-ink dark:text-cloud">-42%</p>
+            <ParallaxImage
+              parallaxIntensity={0.4}
+              offset={["start 60%", "end 20%"]}
+              className="relative overflow-hidden rounded-3xl shadow-soft"
+            >
+              <div className="glass gradient-border relative overflow-hidden rounded-3xl p-8">
+                <Image
+                  src="/illustrations/hero-grid.svg"
+                  alt="Platform analytics and infrastructure"
+                  width={520}
+                  height={520}
+                  className="h-auto w-full animate-float"
+                  priority
+                />
+                <div className="mt-6 grid gap-4 md:grid-cols-2">
+                  <div className="rounded-2xl bg-ink/5 p-4 dark:bg-white/10">
+                    <p className="text-xs uppercase tracking-[0.2em] text-ink/60 dark:text-white/60">
+                      Uptime
+                    </p>
+                    <p className="text-2xl font-semibold text-ink dark:text-cloud">99.98%</p>
+                  </div>
+                  <div className="rounded-2xl bg-ink/5 p-4 dark:bg-white/10">
+                    <p className="text-xs uppercase tracking-[0.2em] text-ink/60 dark:text-white/60">
+                      Latency
+                    </p>
+                    <p className="text-2xl font-semibold text-ink dark:text-cloud">-42%</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ParallaxImage>
           </MotionDiv>
         </div>
       </Container>

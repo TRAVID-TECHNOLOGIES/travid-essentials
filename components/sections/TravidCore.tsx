@@ -6,6 +6,7 @@ import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import SectionDivider from "../animation/SectionDivider";
 import MotionDiv from "../animation/MotionDiv";
+import SmoothScroll from "../animation/SmoothScroll";
 import { fadeUp, staggerContainer } from "../../lib/motionVariants";
 
 const items = [
@@ -122,7 +123,11 @@ export default function TravidCore() {
       viewport={{ once: true, margin: "-80px" }}
     >
       <Container className="space-y-16">
-        <MotionDiv variants={fadeUp}>
+        <SmoothScroll
+          yOffset={[60, -20]}
+          opacityRange={[0.3, 1]}
+          scaleRange={[0.92, 1]}
+        >
           <SectionHeading
             eyebrow="TRAVID Core"
             title="A cinematic reveal of how we build"
@@ -130,7 +135,7 @@ export default function TravidCore() {
             useMotion
             variants={{ eyebrow: fadeUp, title: fadeUp, description: fadeUp }}
           />
-        </MotionDiv>
+        </SmoothScroll>
         <div className="space-y-20">
           {items.map((item, index) => (
             <TravidStep key={item.title} {...item} index={index} />
