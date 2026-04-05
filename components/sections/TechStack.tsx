@@ -6,6 +6,8 @@ import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import MotionDiv from "../animation/MotionDiv";
 import SectionDivider from "../animation/SectionDivider";
+import SmoothScroll from "../animation/SmoothScroll";
+import StaggerReveal from "../animation/StaggerReveal";
 import { fadeUp, staggerContainer } from "../../lib/motionVariants";
 import { techStack } from "./data";
 
@@ -20,7 +22,11 @@ export default function TechStack() {
       viewport={{ once: true, margin: "-80px" }}
     >
       <Container className="space-y-12">
-        <MotionDiv variants={fadeUp}>
+        <SmoothScroll
+          yOffset={[60, -20]}
+          opacityRange={[0.3, 1]}
+          scaleRange={[0.92, 1]}
+        >
           <SectionHeading
             eyebrow="Tech Stack"
             title="Modern platforms, engineered for longevity"
@@ -28,15 +34,15 @@ export default function TechStack() {
             useMotion
             variants={{ eyebrow: fadeUp, title: fadeUp, description: fadeUp }}
           />
-        </MotionDiv>
+        </SmoothScroll>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {techStack.map((tech) => (
-            <MotionDiv
+          {techStack.map((tech, index) => (
+            <StaggerReveal
               key={tech.name}
-              variants={fadeUp}
-              whileHover={{ y: -4, scale: 1.015 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="glass gradient-border flex items-center gap-4 rounded-3xl px-5 py-4 shadow-soft hover:shadow-xl hover:shadow-indigo-500/5"
+              index={index}
+              staggerDelay={0.08}
+              variant="scaleIn"
+              className="glass gradient-border flex items-center gap-4 rounded-3xl px-5 py-4 shadow-soft hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300"
             >
               <MotionDiv
                 whileHover={{ scale: 1.1 }}
@@ -53,7 +59,7 @@ export default function TechStack() {
               <span className="text-sm font-semibold text-ink dark:text-cloud">
                 {tech.name}
               </span>
-            </MotionDiv>
+            </StaggerReveal>
           ))}
         </div>
       </Container>
