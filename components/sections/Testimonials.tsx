@@ -60,7 +60,7 @@ export default function Testimonials() {
                 className="h-full flex flex-col gap-6"
               >
                 <p className="text-sm leading-relaxed text-ink dark:text-cloud">
-                  "{item.quote}"
+                  &quot;{item.quote}&quot;
                 </p>
                 <div>
                   <p className="text-sm font-semibold text-ink dark:text-cloud">

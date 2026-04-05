@@ -29,7 +29,7 @@ export default function ParallaxImage({
   const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: offset as [string, string],
+    offset: offset as any,
   });
 
   // Parallax Y movement (more intense based on parallaxIntensity)

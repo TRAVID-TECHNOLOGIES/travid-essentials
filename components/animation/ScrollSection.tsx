@@ -28,7 +28,7 @@ export default function ScrollSection({
   const MotionTag = motion[as];
 
   return (
-    <MotionTag ref={ref} id={id} style={{ y, opacity, scale }} className={className}>
+    <MotionTag ref={ref as any} id={id} style={{ y, opacity, scale }} className={className}>
       {children}
     </MotionTag>
   );
