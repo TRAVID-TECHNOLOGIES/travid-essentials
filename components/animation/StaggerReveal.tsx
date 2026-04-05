@@ -25,7 +25,7 @@ export default function StaggerReveal({
   const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: offset as [string, string],
+    offset: offset as any,
   });
 
   // Add stagger effect by offsetting animation start per item

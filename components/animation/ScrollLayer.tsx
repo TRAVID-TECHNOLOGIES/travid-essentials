@@ -22,7 +22,7 @@ export default function ScrollLayer({
   offset = ["start end", "end start"],
 }: ScrollLayerProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset });
+  const { scrollYProgress } = useScroll({ target: ref, offset: offset as any });
   const translateY = useTransform(scrollYProgress, [0, 1], y);
   const opacityValue = useTransform(scrollYProgress, [0, 1], opacity);
   const scaleValue = useTransform(scrollYProgress, [0, 1], scale);

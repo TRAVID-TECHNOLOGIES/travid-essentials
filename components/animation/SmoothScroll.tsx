@@ -32,7 +32,7 @@ export default function SmoothScroll({
   const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: offset as [string, string],
+    offset: offset as any,
   });
 
   const translateY = useTransform(
