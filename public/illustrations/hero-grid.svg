@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520" fill="none">
+  <defs>
+    <linearGradient id="grid" x1="0" y1="0" x2="520" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7C8CFF" stop-opacity="0.35" />
+      <stop offset="1" stop-color="#7AF5C7" stop-opacity="0.12" />
+    </linearGradient>
+  </defs>
+  <rect width="520" height="520" rx="32" fill="#0B0D12" />
+  <rect x="32" y="32" width="456" height="456" rx="28" fill="url(#grid)" fill-opacity="0.4" />
+  <g opacity="0.4">
+    <path d="M32 120H488" stroke="#FFFFFF" stroke-opacity="0.18" />
+    <path d="M32 220H488" stroke="#FFFFFF" stroke-opacity="0.18" />
+    <path d="M32 320H488" stroke="#FFFFFF" stroke-opacity="0.18" />
+    <path d="M32 420H488" stroke="#FFFFFF" stroke-opacity="0.18" />
+    <path d="M120 32V488" stroke="#FFFFFF" stroke-opacity="0.18" />
+    <path d="M220 32V488" stroke="#FFFFFF" stroke-opacity="0.18" />
+    <path d="M320 32V488" stroke="#FFFFFF" stroke-opacity="0.18" />
+    <path d="M420 32V488" stroke="#FFFFFF" stroke-opacity="0.18" />
+  </g>
+  <circle cx="160" cy="180" r="52" fill="#7C8CFF" fill-opacity="0.4" />
+  <circle cx="360" cy="280" r="74" fill="#FF9F7A" fill-opacity="0.35" />
+  <path d="M120 360C180 300 280 300 360 220" stroke="#7AF5C7" stroke-width="3" stroke-linecap="round" />
+  <rect x="120" y="120" width="120" height="80" rx="16" fill="#FFFFFF" fill-opacity="0.08" />
+  <rect x="300" y="340" width="140" height="90" rx="18" fill="#FFFFFF" fill-opacity="0.1" />
+</svg>
