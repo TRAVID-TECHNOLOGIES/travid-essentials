@@ -117,7 +117,7 @@ export default function Header() {
               </MotionDiv>
               <MotionDiv variants={itemVariants}>
                 <ButtonLink href="#contact" variant="primary">
-                  Book a Call
+                  Book Call
                 </ButtonLink>
               </MotionDiv>
             </MotionDiv>

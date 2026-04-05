@@ -19,7 +19,7 @@ export default function ButtonLink({
 }: ButtonLinkProps) {
   const MotionLink = motion(Link);
   const base =
-    "group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-300 ease-apple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora/60";
+    "group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 py-3 text-sm font-semibold whitespace-nowrap transition-colors duration-300 ease-apple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aurora/60";
 
   const styles: Record<typeof variant, string> = {
     primary:
