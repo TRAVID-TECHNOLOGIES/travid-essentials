@@ -54,6 +54,10 @@ export async function POST(request: Request) {
     );
   }
 
+  const validatedName = name ?? "";
+  const validatedEmail = email ?? "";
+  const validatedMessage = message ?? "";
+
   const smtpHost = process.env.SMTP_HOST;
   const smtpPort = Number(process.env.SMTP_PORT ?? "587");
   const smtpUser = process.env.SMTP_USER?.trim();
@@ -84,32 +88,32 @@ export async function POST(request: Request) {
       },
     });
 
-    const subject = `New Contact Form Submission - ${name}`;
+    const subject = `New Contact Form Submission - ${validatedName}`;
     const text = [
       "New contact request received:",
-      `Name: ${name}`,
-      `Email: ${email}`,
+      `Name: ${validatedName}`,
+      `Email: ${validatedEmail}`,
       `Mobile: ${mobile}`,
       `Company: ${company}`,
       "",
       "Project Details:",
-      message,
+      validatedMessage,
     ].join("\n");
 
     const html = `
       <h2>New contact request received</h2>
-      <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-      <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+      <p><strong>Name:</strong> ${escapeHtml(validatedName)}</p>
+      <p><strong>Email:</strong> ${escapeHtml(validatedEmail)}</p>
       <p><strong>Mobile:</strong> ${escapeHtml(mobile)}</p>
       <p><strong>Company:</strong> ${escapeHtml(company)}</p>
       <p><strong>Project Details:</strong></p>
-      <p>${escapeHtml(message).replaceAll("\n", "<br />")}</p>
+      <p>${escapeHtml(validatedMessage).replaceAll("\n", "<br />")}</p>
     `;
 
     await transporter.sendMail({
       from: fromAddress,
       to: toAddress,
-      replyTo: email,
+      replyTo: validatedEmail,
       subject,
       text,
       html,
