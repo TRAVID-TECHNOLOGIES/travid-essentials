@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     images: ["/og.svg"],
   },
   icons: {
-    icon: "/icon.svg",
+    icon: "/assets/travid-logo.jpeg",
   },
 };
 

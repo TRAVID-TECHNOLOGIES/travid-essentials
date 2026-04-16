@@ -54,9 +54,12 @@ export default function Services() {
                 <p className="mt-3 text-sm leading-relaxed text-steel">
                   {service.description}
                 </p>
-                <span className="mt-6 inline-flex items-center text-xs font-semibold uppercase tracking-[0.2em] text-aurora">
+                <a
+                  href={`/services/${service.slug}`}
+                  className="mt-6 inline-flex items-center text-xs font-semibold uppercase tracking-[0.2em] text-aurora"
+                >
                   Learn more
-                </span>
+                </a>
               </MotionDiv>
             </StaggerReveal>
           ))}
