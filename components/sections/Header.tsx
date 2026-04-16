@@ -1,6 +1,8 @@
 "use client";
 
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useMemo, useState } from "react";
 import ButtonLink from "../ui/ButtonLink";
@@ -68,23 +70,31 @@ export default function Header() {
           animate={scrolled ? "scrolled" : "top"}
           variants={navVariants}
         >
-          <Container className="flex items-center justify-between py-5">
+          <Container className="flex items-center justify-between py-4 sm:py-5">
             <MotionDiv
-              className="flex items-center gap-3"
+              className="flex min-w-0 items-center gap-2 sm:gap-3"
               initial="hidden"
               animate="visible"
               variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
             >
               <MotionDiv variants={itemVariants}>
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-ink text-cloud dark:bg-cloud dark:text-ink">
-                  <span className="text-lg font-bold">T</span>
-                </div>
+                <Link href="/" className="block shrink-0">
+                  <Image
+                    src="/assets/travid-logo.jpeg"
+                    alt="Travid logo"
+                    width={36}
+                    height={36}
+                    className="h-9 w-9 rounded-xl object-cover sm:h-10 sm:w-10"
+                    priority
+                  />
+                </Link>
               </MotionDiv>
-              <MotionDiv variants={itemVariants}>
-                <p className="text-sm font-semibold text-ink dark:text-cloud">
-                  Travid Technologies
+              <MotionDiv variants={itemVariants} className="min-w-0">
+                <p className="truncate text-[11px] font-semibold leading-tight text-ink dark:text-cloud sm:text-sm">
+                  <span className="sm:hidden">Travid...</span>
+                  <span className="hidden sm:inline">Travid Technologies</span>
                 </p>
-                <p className="text-xs text-steel">Enterprise Software Studio</p>
+                <p className="hidden text-xs text-steel md:block">Enterprise Software Studio</p>
               </MotionDiv>
             </MotionDiv>
             <MotionDiv
@@ -94,12 +104,12 @@ export default function Header() {
               variants={{ visible: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } } }}
             >
               {[
-                ["Services", "#services"],
-                ["About", "#about"],
-                ["TRAVID Core", "#travid"],
-                ["Tech Stack", "#stack"],
-                ["Clients", "#testimonials"],
-                ["Contact", "#contact"],
+                ["Services", "/#services"],
+                ["About", "/#about"],
+                ["TRAVID Core", "/#travid"],
+                ["Tech Stack", "/#stack"],
+                ["Clients", "/#testimonials"],
+                ["Contact", "/#contact"],
               ].map(([label, href]) => (
                 <motion.a key={href} className="link-underline" href={href} variants={itemVariants}>
                   {label}
@@ -107,7 +117,7 @@ export default function Header() {
               ))}
             </MotionDiv>
             <MotionDiv
-              className="flex items-center gap-3"
+              className="flex items-center gap-2 sm:gap-3"
               initial="hidden"
               animate="visible"
               variants={{ visible: { transition: { staggerChildren: 0.05, delayChildren: 0.12 } } }}
@@ -116,7 +126,11 @@ export default function Header() {
                 <ThemeToggle />
               </MotionDiv>
               <MotionDiv variants={itemVariants}>
-                <ButtonLink href="#contact" variant="primary">
+                <ButtonLink
+                  href="/#contact"
+                  variant="primary"
+                  className="px-3 py-2 text-[11px] sm:px-6 sm:py-3 sm:text-sm"
+                >
                   Book Call
                 </ButtonLink>
               </MotionDiv>

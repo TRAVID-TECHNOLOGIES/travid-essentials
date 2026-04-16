@@ -20,9 +20,6 @@ export default function Footer() {
     >
       <Container className="flex flex-col gap-6 text-sm md:flex-row md:items-center md:justify-between">
         <MotionDiv variants={fadeUp}>
-          <p className="font-semibold text-ink dark:text-cloud">
-            Travid Technologies
-          </p>
           <p>Building enterprise systems for ambitious teams.</p>
         </MotionDiv>
         <MotionDiv
@@ -30,11 +27,11 @@ export default function Footer() {
           className="flex flex-wrap gap-6 text-ink/70 dark:text-white/60"
         >
           {[
-            ["Services", "#services"],
-            ["About", "#about"],
-            ["TRAVID Core", "#travid"],
-            ["Tech Stack", "#stack"],
-            ["Contact", "#contact"],
+            ["Services", "/#services"],
+            ["About", "/#about"],
+            ["TRAVID Core", "/#travid"],
+            ["Tech Stack", "/#stack"],
+            ["Contact", "/#contact"],
           ].map(([label, href]) => (
             <motion.a
               key={href}
